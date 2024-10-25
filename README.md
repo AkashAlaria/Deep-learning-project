@@ -1,61 +1,41 @@
 # Fake News Detection Using RNN
 
 ## Overview
-This project implements a deep learning model to detect fake news articles using Recurrent Neural Networks (RNNs). The model is trained on a dataset of labeled news articles, where articles are classified as either fake (1) or real (0). The project involves data preprocessing, model architecture design, training, evaluation, and hyperparameter tuning.
-
-## Table of Contents
-- [Dataset](#dataset)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Results](#results)
-- [Hyperparameter Tuning](#hyperparameter-tuning)
-- [License](#license)
+This project implements a deep learning model to detect fake news articles using Recurrent Neural Networks (RNNs). The model is trained on a dataset of labeled news articles, where articles are classified as either fake (1) or real (0).
 
 ## Dataset
 The project uses two datasets:
-- `Fake.csv`: Contains articles labeled as fake news.
-- `True.csv`: Contains articles labeled as real news.
+- `Fake.csv`: Articles labeled as fake news.
+- `True.csv`: Articles labeled as real news.
 
-Both datasets are combined into a single DataFrame, labeled appropriately.
+These datasets are combined into a single DataFrame.
 
 ## Installation
-To run this project, you will need to install the following dependencies:
+To run this project, install the required dependencies:
 
 ```bash
 pip install pandas numpy matplotlib tensorflow scikit-learn nltk
 
 Usage
 
-	1.	Load the Datasets: Load and label the datasets using the provided scripts.
-	2.	Preprocess the Data: Clean and preprocess the text data (e.g., remove punctuation, convert to lowercase, etc.).
-	3.	Tokenization and Padding: Tokenize the text data and pad sequences for model training.
-	4.	Model Training: Train the RNN model using the preprocessed data.
-	5.	Evaluate the Model: Assess the model’s performance using accuracy, precision, and recall metrics.
+	1.	Load the Datasets: Load and label the datasets.
+	2.	Preprocess the Data: Clean and preprocess the text data.
+	3.	Tokenization and Padding: Tokenize the text data and pad sequences.
+	4.	Model Training: Train the RNN model.
+	5.	Evaluate the Model: Assess performance using accuracy, precision, and recall.
 
 Model Architecture
 
-The model architecture consists of:
+The model consists of:
 
 	•	Embedding Layer: Converts words into dense vectors.
-	•	LSTM Layer: Learns from sequential dependencies in the text.
-	•	Dropout Layer: Helps prevent overfitting.
-	•	Dense Layer: Outputs a binary classification result.
-
-Code Snippet
-
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
-
-model = Sequential()
-model.add(Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=maxlen))
-model.add(LSTM(units=128))
-model.add(Dropout(0.5))
-model.add(Dense(1, activation='sigmoid'))
+	•	LSTM Layer: Learns from sequential dependencies.
+	•	Dropout Layer: Prevents overfitting.
+	•	Dense Layer: Outputs binary classification.
 
 Results
 
-The model achieved the following performance metrics:
+The model’s performance metrics include:
 
 	•	Test Accuracy: XX.XX%
 	•	Precision: XX.XX%
@@ -63,7 +43,6 @@ The model achieved the following performance metrics:
 
 Hyperparameter Tuning
 
-Hyperparameters such as LSTM units, dropout rates, batch sizes, and learning rates were tuned to optimize model performance. The best hyperparameters were determined through cross-validation.
-
+Hyperparameters were optimized through cross-validation to enhance model performance.
 
 
